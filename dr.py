@@ -11,15 +11,15 @@ class Square():
         self.color = color
         self.border_width = border_width
         self.filled = filled
-        self.side = side_size_a
+        self.side_a = side_size_a
     
     def info(self):
-        print(f'Color:{self.color}\nBorder width:{self.border_width}\nFilled:{self.filled}\nSide size a:{self.size}\n')
+        print(f'Color:{self.color}\nBorder width:{self.border_width}\nFilled:{self.filled}\nSide size a:{self.side_a}\n')
     
     def draw(self):
         fig = plt.figure() 
         ax = fig.add_subplot(111) 
-        ax.add_patch( Rectangle((0, 0), self.side, self.side, fill = self.filled, ec = self.color, lw = self.border_width) ) 
+        ax.add_patch( Rectangle((0, 0), self.side_a, self.side_a, fill = self.filled, ec = self.color, lw = self.border_width) ) 
         plt.show()
     
     def __del__(self):
@@ -41,7 +41,7 @@ class Quadrilateral(Square):
         fig, ax = plt.subplots()
         xlist = [0, 0, self.side_b, self.side_d, 0]
         ylist = [0, self.side_a, self.side_c, 0, 0]
-        ax.plot(xlist, ylist, color = self.color)
+        ax.plot(xlist, ylist,fill = self.filled color = self.color)
         ax.grid()
         plt.show()
 
@@ -52,16 +52,16 @@ def left():
     fst.draw()
 
 def right():
-    sec = Quadrilateral('green', 12, True, 1, 2, 0, 1)
+    sec = Quadrilateral('green', 12, True, 1, 2, 4, 1)
     sec.draw()
     sec.info()
 
 
 def main():
     usr_inp = input('1 or 2')
-    if usr_inp == 1:
+    if usr_inp == '1':
         left()
-    elif usr_inp == 2:
+    elif usr_inp == '2':
         right()
 
 if __name__ == '__main__':
